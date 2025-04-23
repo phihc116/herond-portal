@@ -3,6 +3,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../modules/point/frontend"
+    },
+    {
       "path": "./tsconfig.app.json"
     },
     {
