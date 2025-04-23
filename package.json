@@ -18,6 +18,8 @@
     "rxjs": "^7.8.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
     "@eslint/js": "^9.8.0",
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
@@ -70,6 +72,8 @@
   "workspaces": [
     "packages/*",
     "apps/*",
-    "modules/point/*"
+    "modules/point/*",
+    "libs/core/*",
+    "libs/*"
   ]
 }

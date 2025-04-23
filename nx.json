@@ -36,7 +36,8 @@
         }
       },
       "exclude": [
-        "modules/point/backend/*"
+        "modules/point/backend/*",
+        "libs/core/backend/*"
       ]
     },
     {
@@ -52,7 +53,8 @@
     {
       "plugin": "@nx/js/typescript",
       "include": [
-        "modules/point/backend/*"
+        "modules/point/backend/*",
+        "libs/core/backend/*"
       ],
       "options": {
         "typecheck": {
@@ -138,7 +140,8 @@
       },
       "library": {
         "style": "css",
-        "linter": "eslint"
+        "linter": "eslint",
+        "unitTestRunner": "none"
       }
     }
   }

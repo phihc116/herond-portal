@@ -23,6 +23,15 @@
     },
     {
       "path": "./modules/point/frontend"
+    },
+    {
+      "path": "./libs/core/backend"
+    },
+    {
+      "path": "./libs/interfaces"
+    },
+    {
+      "path": "./libs/core/frontend"
     }
   ]
 }
