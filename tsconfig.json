@@ -2,5 +2,27 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./apps/host-api-e2e"
+    },
+    {
+      "path": "./apps/host-api"
+    },
+    {
+      "path": "./modules/point/backend"
+    },
+    {
+      "path": "./apps/host-ui-e2e"
+    },
+    {
+      "path": "./apps/host-ui"
+    },
+    {
+      "path": "./modules/point/frontend-e2e"
+    },
+    {
+      "path": "./modules/point/frontend"
+    }
+  ]
 }

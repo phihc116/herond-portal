@@ -1,0 +1,23 @@
+{
+  "name": "point_frontend",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "modules/point/frontend/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "options": {
+        "port": 4201
+      },
+      "dependsOn": [
+        "typecheck"
+      ]
+    },
+    "build": {
+      "dependsOn": [
+        "^build",
+        "typecheck"
+      ]
+    }
+  }
+}
