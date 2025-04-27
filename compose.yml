@@ -1,0 +1,26 @@
+services:
+  host-api:  # Changed from backend to host-api
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network  # Add network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "4200:80"  # Changed from 4200:4200 to 4200:80 since nginx listens on 80
+    depends_on:
+      - host-api
+    networks:
+      - app-network  # Add network
+
+networks:
+  app-network:
+    driver: bridge

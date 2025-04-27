@@ -1,0 +1,40 @@
+# Build stage
+FROM node:20-alpine as builder
+
+WORKDIR /app
+
+# Install dependencies first (for better caching)
+COPY package.json package-lock.json ./
+COPY nx.json .
+COPY tsconfig*.json ./
+COPY eslint.config.mjs .
+# Copy all configuration files
+COPY .eslintrc* ./
+COPY .prettierrc* ./
+
+RUN npm ci --legacy-peer-deps
+
+# Copy all source code and configuration files
+COPY apps ./apps
+COPY libs ./libs
+COPY modules ./modules
+
+# Build the application
+RUN npx nx build host-api
+
+# Production stage
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package files and install production dependencies
+COPY package.json package-lock.json ./
+COPY --from=builder /app/apps/host-api/dist ./dist
+
+# Install only the production dependencies
+RUN npm ci --only=production --legacy-peer-deps
+
+ENV PORT=3000
+EXPOSE 3000
+
+CMD ["node", "dist/main.js"]

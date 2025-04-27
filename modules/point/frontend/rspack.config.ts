@@ -10,6 +10,9 @@ export default {
     path: join(__dirname, 'dist'),
     publicPath: 'auto'
   },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".html"]
+  },
   devServer: {
     port: 4201,
     headers: {

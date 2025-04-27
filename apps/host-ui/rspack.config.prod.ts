@@ -26,6 +26,7 @@ const prodConfig: ModuleFederationConfig = {
 		* ]
 		*/
 	remotes: [
+    ['point_frontend', 'http://localhost:4200/point/remoteEntry.js'],
 	],
 };
 

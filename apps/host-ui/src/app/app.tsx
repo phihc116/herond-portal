@@ -4,7 +4,6 @@ import { Link, Route, Routes } from 'react-router-dom';
 
 const PointFrontend = React.lazy(() => import('point_frontend/Module'));
 
-
 export function App() {
   return (
     <React.Suspense fallback={null}>

@@ -17,7 +17,12 @@
       "dependsOn": [
         "^build",
         "typecheck"
-      ]
+      ],
+      "configurations":{
+        "production": {
+          "config": "rspack.config.prod.ts"
+        }
+      }
     }
   }
 }
