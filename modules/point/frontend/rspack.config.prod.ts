@@ -8,7 +8,7 @@ import config from './module-federation.config';
 export default {
   output: {
     path: join(__dirname, 'dist'),
-    publicPath: 'auto'
+    publicPath: '/point/'
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx", ".html"]
