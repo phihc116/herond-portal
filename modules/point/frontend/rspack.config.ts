@@ -27,7 +27,7 @@ export default {
   plugins: [
     new NxAppRspackPlugin({
       tsConfig: './tsconfig.app.json',
-      main: './src/main.ts',
+      main: './src/main.tsx',
       index: './src/index.html',
       baseHref: '/',
       assets: ["./src/favicon.ico","./src/assets"],

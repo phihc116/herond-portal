@@ -13,21 +13,21 @@ export default {
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx", ".html"]
   },
-  devServer: {
-    port: 4201,
-    headers: {
-      "Access-Control-Allow-Origin": "*"
-    },
-    historyApiFallback: {
-      index: '/index.html',
-      disableDotRule: true,
-      htmlAcceptHeaders: ['text/html', 'application/xhtml+xml'],
-    },
-  },
+  // devServer: {
+  //   port: 4201,
+  //   headers: {
+  //     "Access-Control-Allow-Origin": "*"
+  //   },
+  //   historyApiFallback: {
+  //     index: '/index.html',
+  //     disableDotRule: true,
+  //     htmlAcceptHeaders: ['text/html', 'application/xhtml+xml'],
+  //   },
+  // },
   plugins: [
     new NxAppRspackPlugin({
       tsConfig: './tsconfig.app.json',
-      main: './src/main.ts',
+      main: './src/main.tsx',
       index: './src/index.html',
       baseHref: '/',
       assets: ["./src/favicon.ico","./src/assets"],

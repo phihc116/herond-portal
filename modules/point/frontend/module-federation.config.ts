@@ -1,13 +1,32 @@
-import {ModuleFederationConfig} from '@nx/module-federation';
+ import { ModuleFederationConfig, SharedLibraryConfig } from '@nx/module-federation';
 
 const config: ModuleFederationConfig = {
   name: 'point_frontend',
   exposes: {
     './Module': './src/remote-entry.ts',
   },
+  shared: (libraryName: string, sharedConfig: SharedLibraryConfig) => {
+    switch (libraryName) {
+      case 'react':
+      case 'react-dom':
+      case 'react-dom/client':
+      case 'react/jsx-dev-runtime':
+      case 'react/jsx-runtime':
+      case 'react-router-dom':
+        return {
+          singleton: true,
+          eager: true,
+          requiredVersion: false,
+        };
+      default:
+        // Ensure other shared libraries are also eagerly loaded
+        return {
+          ...sharedConfig,
+          eager: true
+        };
+    }
+  },
 };
 
-/**
-* Nx requires a default export of the config to allow correct resolution of the module federation graph.
-**/
 export default config;
+

@@ -1,23 +1,30 @@
-import { ModuleFederationConfig } from "@nx/module-federation"
+import { ModuleFederationConfig, SharedLibraryConfig } from '@nx/module-federation';
 
 const config: ModuleFederationConfig = {
-  name: "host-ui",
-  /**
-   * To use a remote that does not exist in your current Nx Workspace
-   * You can use the tuple-syntax to define your remote
-   *
-   * remotes: [['my-external-remote', 'https://nx-angular-remote.netlify.app']]
-   *
-   * You _may_ need to add a `remotes.d.ts` file to your `src/` folder declaring the external remote for tsc, with the
-   * following content:
-   *
-   * declare module 'my-external-remote';
-   *
-   */
+  name: 'host-ui',
   remotes: ["point_frontend"],
-}
+  shared: (libraryName: string, sharedConfig: SharedLibraryConfig) => {
+    switch (libraryName) {
+      case 'react':
+      case 'react-dom':
+      case 'react-dom/client':
+      case 'react/jsx-dev-runtime':
+      case 'react/jsx-runtime':
+      case 'react-router-dom':
+        return {
+          singleton: true,
+          eager: true,
+          requiredVersion: false,
+        };
+      default:
+        // Ensure other shared libraries are also eagerly loaded
+        return {
+          ...sharedConfig,
+          eager: true
+        };
+    }
+  },
+};
 
-/**
- * Nx requires a default export of the config to allow correct resolution of the module federation graph.
- **/
-export default config
+export default config;
+
