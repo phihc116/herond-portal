@@ -8,12 +8,12 @@ export function App() {
     <React.Suspense fallback={<div>Loading...</div>}>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/point">PointFrontend</Link></li>
-        <li><Link to="/point/detail">PointFrontendDetail</Link></li>
+        <li><Link to="/herond-point">PointFrontend</Link></li>
+        <li><Link to="/herond-point/detail">PointFrontendDetail</Link></li>
       </ul>
       <Routes>
         <Route path="/" element={<NxWelcome title="host-ui" />} />
-        <Route path="/point/*" element={<PointFrontend />} />
+        <Route path="/herond-point/*" element={<PointFrontend />} />
       </Routes>
     </React.Suspense>
   );
