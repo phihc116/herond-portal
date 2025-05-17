@@ -1,0 +1,15 @@
+frontend:
+    - changed-files:
+          - any-glob-to-any-file: 'app/host-api/**'
+
+backend:
+    - changed-files:
+          - any-glob-to-any-file: 'app/host-ui/**'
+
+libs:
+    - changed-files:
+          - any-glob-to-any-file: 'libs/**'
+
+ci:
+    - changed-files:
+          - any-glob-to-any-file: '.github/workflows/**'
